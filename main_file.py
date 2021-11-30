@@ -2,7 +2,6 @@ from hasher import score
 import json
 
 with open('input_file.json', 'r') as openfile:
-
     json_object = json.load(openfile)
 
 arr = json_object['arr']

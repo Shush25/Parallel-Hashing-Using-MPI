@@ -27,8 +27,7 @@ class score():
                 block = afile.read(blocksize)
 
     def hashfunctions(self, name, fname):
-        return(str(self.hash_bytestr_iter(self.file_as_blockiter(
-            open(fname, 'rb')), name())))
+        return(str(self.hash_bytestr_iter(self.file_as_blockiter(open(fname, 'rb')), name())))
 
     def writeasjson(self, fname, Dict):
         json_object = json.dumps(Dict, indent=1)
@@ -68,3 +67,6 @@ class score():
                 myDict[self.names[j].__name__] = self.hashfunctions(
                     self.names[j], self.fnames[i])
             self.writeasjson(self.fnames[i], myDict)
+
+    def check_intigrity(self):
+        print('Intigrity Check')

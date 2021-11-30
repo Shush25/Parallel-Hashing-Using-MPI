@@ -1,8 +1,6 @@
 {
+ "p_type": 1,
  "arr": [
-  "input_files/matlab.docx",
-  "input_files/random_dataset.txt",
-  "input_files/shush.docx"
- ],
- "p_type": 1
+  "input_files/matlab.docx"
+ ]
 }
