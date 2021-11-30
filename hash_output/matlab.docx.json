@@ -1,9 +1,8 @@
 {
  "openssl_md5": "433b8031828389c3d7384ffa8272388f",
- "openssl_sha384": "9ea13d3fe48e0ca66d2b6cb695ca3e71d0d37ab4fecd3e111afccb7094e769321c58a86aa9581ff381bc098222f2b900",
  "openssl_sha1": "a99791a41503f05ca6a5693e475517a725cdae84",
- "openssl_sha512": "ad9fb6f422f6e2145aa109739e8a1cb57b1a558c218372e938b3610f2262a57fed2e9bb05bbf9d26cbe4cf156a82e8fc38f711cb949af233a05aa4124725ae96",
  "openssl_sha224": "7baec31b43c38b16226eea79d55dbf9aeb2cf389cc20bbd6e3d3164a",
  "openssl_sha256": "0228d2d6c94722f682dd73f0f9c233fb0efc7d70a5dd93ad3e2a306d2720e8eb",
- "Available Algorithms:": "{'sha384', 'blake2b', 'sha3_384', 'sha3_256', 'sha224', 'md5', 'blake2s', 'sha512', 'shake_128', 'sha3_512', 'sha1', 'sha256', 'sha3_224', 'shake_256'}"
+ "openssl_sha384": "9ea13d3fe48e0ca66d2b6cb695ca3e71d0d37ab4fecd3e111afccb7094e769321c58a86aa9581ff381bc098222f2b900",
+ "openssl_sha512": "ad9fb6f422f6e2145aa109739e8a1cb57b1a558c218372e938b3610f2262a57fed2e9bb05bbf9d26cbe4cf156a82e8fc38f711cb949af233a05aa4124725ae96"
 }

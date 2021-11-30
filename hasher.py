@@ -69,4 +69,9 @@ class score():
             self.writeasjson(self.fnames[i], myDict)
 
     def check_intigrity(self):
-        print('Intigrity Check')
+        for i in range(self.rank, len(self.names), self.size):
+                print(str(self.names[i].__name__) + ":\t", end="")
+                if(self.hashfunctions(self.names[i], self.fnames[0]) == self.hashfunctions(self.names[i], self.fnames[1])):
+                    print("PASS")
+                else:
+                    print("FAIL")

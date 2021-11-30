@@ -19,10 +19,12 @@ if(choice == 1):
     if(fileDict["p_type"] == 1 or 2):
         os.system('cls')
         print("<<< PARALLEL CHF CALCULATOR >>>\n\n")
-        print("Enter Number of Files: ", end='')
+        print("Enter Number of Files: ", end="")
         n = int(input())
+        print("\n")
+
         for i in range(n):
-            print(f'File Name[{i+1}]: ', end='')
+            print(f"File Name[{i+1}]: ", end="")
             arr.append("input_files/" + input())
         fileDict['arr'] = arr
 
@@ -35,5 +37,20 @@ if(choice == 1):
         print("Invalid Input!")
 
 elif(choice == 2):
+    fileDict["p_type"] = 3
     os.system('cls')
     print("<<< FILE INTIGRITY CHECKER >>>\n\n")
+
+    for i in range(2):
+        print(f"File Name[{i+1}]: ", end="")
+        arr.append("input_files/" + input())
+    fileDict['arr'] = arr
+
+    json_object = json.dumps(fileDict, indent=1)
+
+    with open("input_file.json", "w") as outfile:
+            outfile.write(json_object)
+    os.system('mpiexec -n 4 python main_file.py')
+
+elif(choice == 0):
+    exit
