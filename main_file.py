@@ -13,3 +13,5 @@ elif(p_type == 2):
     obj.paralle_file_hasher()
 elif(p_type == 3):
     obj.check_intigrity()
+elif(p_type == 4):
+    obj.serial_hashing()

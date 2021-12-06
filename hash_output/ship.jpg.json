@@ -1,0 +1,8 @@
+{
+ "openssl_md5": "253dd04e87492e4fc3471de5e776bc3d",
+ "openssl_sha1": "9639db1fbadfcfbd4025a9b95d10b7799f65fcfb",
+ "openssl_sha224": "883696ef71737ef8a12b48a129f17140f4db04dcfbb4acf137c3b318",
+ "openssl_sha256": "caf110e4aebe1fe7acef6da946a2bac9d51edcd47a987e311599c7c1c92e3abd",
+ "openssl_sha384": "7fe3867995ce283d06dc8b98c2bd99320e162ed29502861b2e2f71e1c6b611e48748c3347c5f7c9aeff738dda13d1bd1",
+ "openssl_sha512": "434425fd7ad9ef91ab9805e1a87dc35ecfc4db00b085c4cf2d5984e1c10bda5d0c3b85499b9f362dcd66d389ad374ca16bfc902c45fb777a80f09b3b7a773e55"
+}

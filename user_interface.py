@@ -6,7 +6,7 @@ arr = []
 
 os.system('cls')
 print("<<< FILE HASH AND INTIGRITY CHECKER >>>\n\n")
-print("1. Calculate File Hash\n2. Check File Intigrity\n0. Exit\n\nEnter Choice: ")
+print("1. Calculate File Hash\n2. Check File Intigrity\n3. Serial Hashing\n0. Exit\n\nEnter Choice: ")
 
 choice = int(input())
 
@@ -49,7 +49,24 @@ elif(choice == 2):
     json_object = json.dumps(fileDict, indent=1)
 
     with open("input_file.json", "w") as outfile:
-            outfile.write(json_object)
+        outfile.write(json_object)
+    os.system('mpiexec -n 4 python main_file.py')
+
+elif(choice == 3):
+    fileDict["p_type"] = 4
+    print("Enter Number of Files: ", end="")
+    n = int(input())
+    print("\n")
+
+    for i in range(n):
+        print(f"File Name[{i+1}]: ", end="")
+        arr.append("input_files/" + input())
+    fileDict['arr'] = arr
+
+    json_object = json.dumps(fileDict, indent=1)
+
+    with open("input_file.json", "w") as outfile:
+        outfile.write(json_object)
     os.system('mpiexec -n 4 python main_file.py')
 
 elif(choice == 0):

@@ -1,6 +1,7 @@
 import hashlib
 from mpi4py import MPI
 import json
+import time
 
 
 class score():
@@ -39,6 +40,9 @@ class score():
 
     def parallel_hashing(self):
 
+        if (self.rank == 0):
+            start = time.time()
+
         for fname in self.fnames:
 
             myDict = {}
@@ -57,8 +61,15 @@ class score():
                     hashlib.algorithms_guaranteed)
 
                 self.writeasjson(fname, myDict)
+        if(self.rank == 0):
+            end = time.time()
+            total_time = {}
+            total_time['Paralle_CHF_time'] = end-start
+            self.writeasjson('input_files/time', total_time)
 
     def paralle_file_hasher(self):
+        if (self.rank == 0):
+            start = time.time()
         for i in range(self.rank, len(self.fnames), self.size):
 
             myDict = {}
@@ -67,11 +78,34 @@ class score():
                 myDict[self.names[j].__name__] = self.hashfunctions(
                     self.names[j], self.fnames[i])
             self.writeasjson(self.fnames[i], myDict)
+        if(self.rank == 0):
+            end = time.time()
+            total_time = {}
+            total_time['Paralle_File_Hashing_Time'] = end-start
+            self.writeasjson('input_files/time', total_time)
 
     def check_intigrity(self):
         for i in range(self.rank, len(self.names), self.size):
-                print(str(self.names[i].__name__) + ":\t", end="")
-                if(self.hashfunctions(self.names[i], self.fnames[0]) == self.hashfunctions(self.names[i], self.fnames[1])):
-                    print("PASS")
-                else:
-                    print("FAIL")
+            print(str(self.names[i].__name__) + ":\t", end="")
+            if(self.hashfunctions(self.names[i], self.fnames[0]) == self.hashfunctions(self.names[i], self.fnames[1])):
+                print("PASS")
+            else:
+                print("FAIL")
+
+    def serial_hashing(self):
+
+        start = time.time()
+
+        for i in range(0, len(self.fnames)):
+
+            myDict = {}
+
+            for j in range(len(self.names)):
+                myDict[self.names[j].__name__] = self.hashfunctions(
+                    self.names[j], self.fnames[i])
+            self.writeasjson(self.fnames[i], myDict)
+
+        end = time.time()
+        total_time = {}
+        total_time['Serial_Hashing_Time'] = end-start
+        self.writeasjson('input_files/time', total_time)
